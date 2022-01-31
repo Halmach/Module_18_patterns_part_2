@@ -7,7 +7,7 @@ namespace Module_18_patterns_part_2
     {
         static void Main(string[] args)
         {
-            Task_18_1_1();
+            ShowPrototype();
         }
 
         static void ShowBuilderPattern()
@@ -49,6 +49,26 @@ namespace Module_18_patterns_part_2
             builder = new MotoConveyor();
             carPlant.Construct(builder);
             builder.Product.Show();
+        }
+
+        static void ShowPrototype()
+        {
+            // создаем точку
+            ILocation location = new Point(30.245, 40.954);
+            // клонируем точку (получаем новую точку с теми же координатами)
+            ILocation cloneLocation = location.Clone();
+
+            location.GetInfo();
+            cloneLocation.GetInfo();
+
+            // создаем место
+            location = new Place(" Улица Пушкина, дом Колотушкина");
+            // клонируем место (полуаем новое место по тому же адресу)
+            // пример использования - нам надо обозначить новый магазин в том же самом торговом центре
+            cloneLocation = location.Clone();
+
+            location.GetInfo();
+            cloneLocation.GetInfo();
         }
     }
 }
