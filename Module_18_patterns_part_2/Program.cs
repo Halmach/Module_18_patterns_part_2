@@ -7,7 +7,7 @@ namespace Module_18_patterns_part_2
     {
         static void Main(string[] args)
         {
-            ShowPrototype();
+            Task_18_1_6();
         }
 
         static void ShowBuilderPattern()
@@ -69,6 +69,21 @@ namespace Module_18_patterns_part_2
 
             location.GetInfo();
             cloneLocation.GetInfo();
+        }
+
+        static void Task_18_1_6()
+        {
+            BaseClass myObject = new ImplementationOne(1);
+            myObject.GetId();
+
+            BaseClass clone = myObject.Clone();
+            clone.GetId();
+
+            myObject = new ImplementationTwo(2);
+            myObject.GetId();
+
+            clone = myObject.Clone();
+            clone.GetId();
         }
     }
 }
