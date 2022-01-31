@@ -7,7 +7,7 @@ namespace Module_18_patterns_part_2
     {
         static void Main(string[] args)
         {
-            Task_18_1_6();
+            ShowCommand();
         }
 
         static void ShowBuilderPattern()
@@ -84,6 +84,24 @@ namespace Module_18_patterns_part_2
 
             clone = myObject.Clone();
             clone.GetId();
+        }
+
+        static void ShowCommand()
+        {
+            // создадим отправителя
+            var sender = new Sender();
+
+            // создадим получателя
+            var receiver = new Receiver();
+
+            // создадим команду
+            Command command = new CommandOne(receiver);
+
+            // инициализация команды
+            sender.SetCommand(command);
+
+            // выполнение
+            sender.Run();
         }
     }
 }
