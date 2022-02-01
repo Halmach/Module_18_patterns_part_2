@@ -7,7 +7,7 @@ namespace Module_18_patterns_part_2
     {
         static void Main(string[] args)
         {
-            ShowStrategy();
+            Task_18_2_5();
         }
 
         static void ShowBuilderPattern()
@@ -115,6 +115,16 @@ namespace Module_18_patterns_part_2
 
             boiler = new Boiler(35, "Beko", electric);
             boiler.Start();
+        }
+
+        static void Task_18_2_5()
+        {
+            Pult pult = new Pult();
+            Gate gate = new Gate();
+
+            pult.SetAction(new GateOpenAction(gate));
+            pult.OpenButton();
+            pult.CloseButton();
         }
     }
 }
