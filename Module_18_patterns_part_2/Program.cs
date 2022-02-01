@@ -7,7 +7,7 @@ namespace Module_18_patterns_part_2
     {
         static void Main(string[] args)
         {
-            ShowCommand();
+            ShowStrategy();
         }
 
         static void ShowBuilderPattern()
@@ -102,6 +102,19 @@ namespace Module_18_patterns_part_2
 
             // выполнение
             sender.Run();
+        }
+
+        static void ShowStrategy()
+        {
+            var gas = new GasHeater();
+
+            var electric = new ElectricHeater();
+
+            var boiler = new Boiler(30, "Bosch", gas);
+            boiler.Start();
+
+            boiler = new Boiler(35, "Beko", electric);
+            boiler.Start();
         }
     }
 }
